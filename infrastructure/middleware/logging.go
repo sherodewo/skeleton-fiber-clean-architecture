@@ -6,16 +6,25 @@ import (
 	"time"
 )
 
-// LoggingMiddleware logs the details of each request
+// LoggingMiddleware logs detailed information about each request
 func LoggingMiddleware(c *fiber.Ctx) error {
+	// Record the start time
 	start := time.Now()
 
 	// Proceed to the next middleware or handler
 	err := c.Next()
 
-	// Log the request details
+	// Record the end time
 	stop := time.Now()
-	log.Printf("%s %s %v\n", c.Method(), c.OriginalURL(), stop.Sub(start))
+
+	// Log request details
+	log.Printf("Method: %s, URL: %s, Status: %d, Latency: %s, Error: %v",
+		c.Method(),
+		c.OriginalURL(),
+		c.Response().StatusCode(),
+		stop.Sub(start),
+		err,
+	)
 
 	return err
 }
