@@ -6,9 +6,9 @@ import (
 	"skeleton-fiber-clean-architecture/infrastructure/container"
 )
 
-func SetupHistoryRoutes(app *fiber.App, container *container.Container) {
+func SetupHistoryRoutes(app fiber.Router, container *container.Container) {
 	historyCtrl := &historyController.HistoryController{HistoryUseCase: container.HistoryUseCase}
 
-	app.Get("/history/:id", historyCtrl.GetHistory)
+	app.Get("/history", historyCtrl.GetHistory)
 	app.Post("/history", historyCtrl.CreateHistory)
 }

@@ -6,7 +6,7 @@ import (
 	"skeleton-fiber-clean-architecture/infrastructure/container"
 )
 
-func SetupUserRoutes(app *fiber.App, container *container.Container) {
+func SetupUserRoutes(app fiber.Router, container *container.Container) {
 	userCtrl := &userController.UserController{UserUseCase: container.UserUseCase}
 
 	app.Get("/users/:id", userCtrl.GetUser)

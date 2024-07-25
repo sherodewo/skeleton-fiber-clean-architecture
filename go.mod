@@ -10,9 +10,11 @@ require (
 	github.com/pressly/goose/v3 v3.21.1
 	github.com/sirupsen/logrus v1.9.3
 	golang.org/x/crypto v0.23.0
+	golang.org/x/oauth2 v0.21.0
 )
 
 require (
+	cloud.google.com/go/compute/metadata v0.3.0 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/andybalholm/brotli v1.0.6 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
